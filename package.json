@@ -4,7 +4,7 @@
 	"description": "n8n community node for Getlead CRM: create, update, upsert and find leads, add notes, and trigger on new leads",
 	"license": "MIT",
 	"private": true,
-	"homepage": "https://github.com/Vijay-Thorakkattu/n8n-nodes-getlead#readme",
+	"homepage": "https://github.com/vijaygetlead-developer/n8n-nodes-getlead#readme",
 	"keywords": [
 		"n8n-community-node-package",
 		"getlead",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Vijay-Thorakkattu/n8n-nodes-getlead.git"
+		"url": "https://github.com/vijaygetlead-developer/n8n-nodes-getlead.git"
 	},
 	"scripts": {
 		"build": "n8n-node build",
