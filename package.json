@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-getlead",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "n8n community node for Getlead CRM: create, update, upsert and find leads, add notes, and trigger on new leads",
 	"license": "MIT",
 	"homepage": "https://github.com/vijaygetlead-developer/n8n-nodes-getlead#readme",
@@ -23,7 +23,9 @@
 		"build:watch": "tsc --watch",
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
-		"lint:fix": "n8n-node lint --fix"
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
 	},
 	"files": [
 		"dist"
@@ -43,6 +45,7 @@
 		"@n8n/node-cli": "*",
 		"eslint": "9.29.0",
 		"prettier": "3.8.3",
+		"release-it": "^19.2.4",
 		"typescript": "5.9.3"
 	},
 	"peerDependencies": {
