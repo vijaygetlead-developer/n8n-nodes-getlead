@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-	<rect width="64" height="64" rx="14" fill="#4C8DF6"/>
-	<path d="M44 22.5A15 15 0 1 0 47 34H33" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="19 21 260 260" width="64" height="64">
+	<defs><clipPath id="gl-clip-dark"><circle cx="149" cy="151" r="130"/></clipPath></defs>
+	<circle cx="149" cy="151" r="130" fill="#ED1C24"/>
+	<polyline points="95,113 148,169 285,32" fill="none" stroke="#FFFFFF" stroke-width="25" stroke-linejoin="miter" stroke-linecap="butt" clip-path="url(#gl-clip-dark)"/>
 </svg>
