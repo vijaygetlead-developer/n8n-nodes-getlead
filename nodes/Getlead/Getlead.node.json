@@ -1,0 +1,10 @@
+{
+	"node": "n8n-nodes-getlead.getlead",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Sales"],
+	"resources": {
+		"credentialDocumentation": [{ "url": "https://getleadcrm.com/developer-hub" }],
+		"primaryDocumentation": [{ "url": "https://getleadcrm.com/developer-hub" }]
+	}
+}

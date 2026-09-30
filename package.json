@@ -1,0 +1,52 @@
+{
+	"name": "n8n-nodes-getlead",
+	"version": "0.1.0",
+	"description": "n8n community node for Getlead CRM: create, update, upsert and find leads, add notes, and trigger on new leads",
+	"license": "MIT",
+	"private": true,
+	"homepage": "https://github.com/Vijay-Thorakkattu/n8n-nodes-getlead#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"getlead",
+		"crm",
+		"leads"
+	],
+	"author": {
+		"name": "Getlead",
+		"email": "getleadclaude@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Vijay-Thorakkattu/n8n-nodes-getlead.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/GetleadApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Getlead/Getlead.node.js",
+			"dist/nodes/GetleadTrigger/GetleadTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "*",
+		"eslint": "9.29.0",
+		"prettier": "3.8.3",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
