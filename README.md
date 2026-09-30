@@ -14,7 +14,6 @@ It uses the Getlead V3 API (`https://v3.getleadcrm.com/api/v1`). See the [Getlea
 - [Usage](#usage)
 - [Operations](#operations)
 - [Custom fields](#custom-fields)
-- [Known API limitations](#known-api-limitations)
 - [Development](#development)
 - [License](#license)
 
@@ -112,19 +111,6 @@ Custom fields are loaded live from `GET /meta`, so new fields added in Getlead s
 - **Custom Fields:** click *Add custom field to send* and pick a field. Select fields show a dropdown with the labels; the stored value is sent (e.g. "25000" → `_25000`). Values coming from expressions, e.g. a form sending "KOTTAYAM", are mapped to the stored value; unknown values fail with the list of allowed ones.
 - **Multi-Select Custom Fields:** multi-select fields (e.g. *hobbies*) live in their own section, because n8n's field mapper has no multi-select input. Pick the field, then tick the values.
 - **Dates:** pick with the date picker. Date-only fields are sent as `YYYY-MM-DD`, date & time fields as `YYYY-MM-DDTHH:mm:ss`.
-
-## Known API limitations
-
-Behaviour of the Getlead V3 API that the node works around, or that users should know about:
-
-| Behaviour | Effect / workaround in the node |
-| --- | --- |
-| `PATCH` replaces a lead's whole `custom_fields` set | The node reads the lead's current custom fields and merges them in, so updating one field keeps the others. |
-| On create, date-only fields accept only `YYYY-MM-DD` | The node looks up field types in `/meta` and strips the time from date-only fields. |
-| `/meta` returns no field labels | Field names are built from their keys (`location_2` → "Location 2"). |
-| Setting a boolean custom field to `false` clears it | The CRM shows the field as empty rather than "No". |
-| Email / URL / phone custom fields are not validated | Invalid values are saved as-is. |
-| Notes cannot be read back through the API | Check added notes in the CRM's **Notes** tab. |
 
 ## Development
 
