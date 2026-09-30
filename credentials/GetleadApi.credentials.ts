@@ -11,7 +11,7 @@ export class GetleadApi implements ICredentialType {
 
 	displayName = 'Getlead API';
 
-	icon: Icon = { light: 'file:../icons/getlead.svg', dark: 'file:../icons/getlead.dark.svg' };
+	icon: Icon = { light: 'file:../icons/getlead-logo.svg', dark: 'file:../icons/getlead-logo.dark.svg' };
 
 	documentationUrl = 'https://getleadcrm.com/developer-hub';
 

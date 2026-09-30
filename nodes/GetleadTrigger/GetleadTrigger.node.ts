@@ -25,7 +25,7 @@ export class GetleadTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Getlead Trigger',
 		name: 'getleadTrigger',
-		icon: { light: 'file:../../icons/getlead.svg', dark: 'file:../../icons/getlead.dark.svg' },
+		icon: { light: 'file:../../icons/getlead-logo.svg', dark: 'file:../../icons/getlead-logo.dark.svg' },
 		group: ['trigger'],
 		version: 1,
 		subtitle: 'New Lead',

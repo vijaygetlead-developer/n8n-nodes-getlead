@@ -206,7 +206,7 @@ export class Getlead implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Getlead',
 		name: 'getlead',
-		icon: { light: 'file:../../icons/getlead.svg', dark: 'file:../../icons/getlead.dark.svg' },
+		icon: { light: 'file:../../icons/getlead-logo.svg', dark: 'file:../../icons/getlead-logo.dark.svg' },
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
