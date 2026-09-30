@@ -27,12 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Debug dependency tree (temporary)
-        run: |
-          npm --version
-          npm ls typescript ts-api-utils @typescript-eslint/typescript-estree || true
-          ls node_modules/@n8n/eslint-plugin-community-nodes/node_modules 2>/dev/null || echo "no nested node_modules"
-
       - name: Run lint
         run: npm run lint
 
