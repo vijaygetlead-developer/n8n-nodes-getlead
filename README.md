@@ -88,7 +88,7 @@ A new person is **created**. If the same person submits again, their lead is **u
 
 | Event | Behaviour |
 | --- | --- |
-| **New Lead** | Polls `GET /leads` (sorted by `created_at`) and emits each lead created since the last poll. Optional filters: source, status. On activation it only records the newest lead and never replays existing ones. *Fetch Test Event* returns the most recent lead. |
+| **New Lead** | Polls `GET /leads` (sorted by `created_at`) and emits each lead created since the last poll. Optional filters: source, status. On activation it only records the newest lead and never replays existing ones. *Fetch Test Event* returns the most recent lead. Each lead includes `phone` (the primary number) and `all_phone_numbers` alongside the full `phone_numbers` list. |
 
 ### Getlead
 

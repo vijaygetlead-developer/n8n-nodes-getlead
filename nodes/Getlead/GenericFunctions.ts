@@ -273,10 +273,27 @@ async function getMultiSelectCustomFields(this: ILoadOptionsFunctions): Promise<
 	return fields.filter((field) => field.field_key && field.field_type === 'multiselect');
 }
 
+function getPhoneNumbers(lead: IDataObject): string[] {
+	const phones = (lead.phone_numbers as Array<IDataObject | string> | undefined) ?? [];
+	return phones
+		.map((phone) => (typeof phone === 'string' ? phone : (phone?.number as string | undefined)))
+		.filter((number): number is string => Boolean(number));
+}
+
+/** The number flagged `is_primary`, else the first one. */
 function getPrimaryPhone(lead: IDataObject): string | undefined {
-	const [first] = (lead.phone_numbers as Array<IDataObject | string> | undefined) ?? [];
-	if (!first) return undefined;
-	return typeof first === 'string' ? first : (first.number as string | undefined);
+	const phones = (lead.phone_numbers as Array<IDataObject | string> | undefined) ?? [];
+	const primary = phones.find((phone) => typeof phone === 'object' && phone?.is_primary);
+	return (primary as IDataObject | undefined)?.number as string | undefined ?? getPhoneNumbers(lead)[0];
+}
+
+/** Adds flat `phone` and `all_phone_numbers` so the phone can be mapped without expressions. */
+export function withPhoneFields(lead: IDataObject): IDataObject {
+	return {
+		...lead,
+		phone: getPrimaryPhone(lead) ?? null,
+		all_phone_numbers: getPhoneNumbers(lead).join(', '),
+	};
 }
 
 export const listSearch = {

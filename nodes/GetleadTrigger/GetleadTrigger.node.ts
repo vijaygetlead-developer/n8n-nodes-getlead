@@ -12,6 +12,7 @@ import {
 	getleadApiRequest,
 	getleadListLeads,
 	loadOptions,
+	withPhoneFields,
 } from '../Getlead/GenericFunctions';
 
 // Leads read per poll at most (50 per page). Anything beyond is picked up on the next poll.
@@ -109,7 +110,7 @@ export class GetleadTrigger implements INodeType {
 		// "Fetch Test Event" in the editor: return the most recent lead.
 		if (this.getMode() === 'manual') {
 			const newest = await fetchNewest();
-			return newest ? [this.helpers.returnJsonArray([newest])] : null;
+			return newest ? [this.helpers.returnJsonArray([withPhoneFields(newest)])] : null;
 		}
 
 		// First poll after activation: remember where we are, don't replay old leads.
@@ -158,6 +159,6 @@ export class GetleadTrigger implements INodeType {
 		staticData.seenIds =
 			newestMs === lastMs ? [...new Set([...seenIds, ...idsAtWatermark])] : idsAtWatermark;
 
-		return [this.helpers.returnJsonArray(newLeads)];
+		return [this.helpers.returnJsonArray(newLeads.map(withPhoneFields))];
 	}
 }
