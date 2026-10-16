@@ -4,7 +4,7 @@ An [n8n](https://n8n.io) community node for **[Getlead CRM](https://getleadcrm.c
 
 It uses the Getlead V3 API (`https://v3.getleadcrm.com/api/v1`). See the [Getlead Developer Hub](https://getleadcrm.com/developer-hub) for the API itself.
 
-> **Status:** working and tested against the Getlead V3 API. It is **not on npm yet**; publishing waits for the Getlead npm organisation. Until then, install it manually (see [Installation](#installation)).
+> **Status:** a **verified n8n community node**, published on [npm](https://www.npmjs.com/package/n8n-nodes-getlead) and available on n8n Cloud and self-hosted n8n.
 
 ## Contents
 
@@ -29,28 +29,9 @@ It uses the Getlead V3 API (`https://v3.getleadcrm.com/api/v1`). See the [Getlea
 
 ## Installation
 
-Requires **n8n 2.x** (self-hosted), which runs on **Node.js 24**.
+**n8n Cloud and self-hosted n8n:** in a workflow, click **+**, search for **Getlead**, and add the node. As a verified community node it installs on first use.
 
-### Once published to npm
-
-In n8n: **Settings → Community Nodes → Install**, enter `n8n-nodes-getlead`, and confirm. See n8n's [community nodes guide](https://docs.n8n.io/integrations/community-nodes/installation/).
-
-### Until then: manual install
-
-```bash
-git clone https://github.com/vijaygetlead-developer/n8n-nodes-getlead.git
-cd n8n-nodes-getlead
-npm install
-npm run build
-
-# link the package into n8n's custom nodes folder
-mkdir -p ~/.n8n/custom/node_modules
-ln -s "$(pwd)" ~/.n8n/custom/node_modules/n8n-nodes-getlead
-
-n8n start
-```
-
-Restart n8n after every `npm run build`. The nodes then appear when you search **Getlead** in the node panel.
+**Self-hosted, from Settings:** go to **Settings → Community Nodes → Install**, enter `n8n-nodes-getlead`, and confirm. See n8n's [community nodes guide](https://docs.n8n.io/integrations/community-nodes/installation/).
 
 ## Credentials
 
@@ -129,7 +110,7 @@ nodes/Getlead/GenericFunctions.ts        API requests (429/5xx retry), paginatio
 nodes/GetleadTrigger/GetleadTrigger.node.ts   New Lead polling trigger
 ```
 
-GitHub Actions runs lint and build on every push to `main`.
+GitHub Actions runs lint and build on every push to `main`. Pushing a version tag (for example `0.1.3`) publishes that version to npm with provenance; don't run `npm publish` locally.
 
 **Testing against Getlead (Getlead team):** use the test business's API key, only create leads whose name starts with **ZZ**, and don't delete anything you didn't create.
 
